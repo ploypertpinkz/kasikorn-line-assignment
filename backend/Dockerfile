@@ -8,6 +8,6 @@ RUN gradle bootJar --no-daemon
 # Stage 2: Create a lightweight image to run the application with OpenJDK 11
 FROM openjdk:11-jdk-slim
 WORKDIR /app
-COPY --from=build /app/build/libs/*.jar app.jar
+COPY --from=build /app/build/libs/app.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
